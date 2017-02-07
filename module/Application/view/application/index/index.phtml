@@ -1,0 +1,99 @@
+<div class="jumbotron" xmlns="http://www.w3.org/1999/html">
+    <h1>Welcome to <span class="zf-green">HybridAuth</span></h1>
+
+    <p>
+        Congratulations! This is a dummy-example of the
+        <a href="https://github.com/zendframework/ZendSkeletonApplication" target="_blank">ZF Skeleton Application</a> combined with the
+        <a href="https://github.com/heiglandreas/HybridAuth" target="_blank">HybridAuth-Module</a>.
+        This is currently running Zend Framework version <?= \Application\Module::VERSION ?>.
+    </p>
+
+    <p><a class="btn btn-success btn-lg" href="https://github.com/heiglandreas/hybridauthDummyProjectSingleProvider" target="_blank">See this sourcecode on GitHub &raquo;</a></p>
+</div>
+
+<div class="row">
+
+    <div class="col-md-4">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Available Information</h3>
+            </div>
+            <div class="panel-body">
+                <p>
+                    The session can be retrieved via <code style="display:block;">
+                        $session = $container->get('OrgHeiglHybridAuthSession');
+                    </code>
+
+                    and contains these informations:
+                </p>
+                <dl>
+                    <dt>authenticated</dt><dd>A boolean value whether the user is authenticated or not.</dd>
+                    <dt>user</dt><dd>contains a HybridAuthUserWrapper-Object when the user is authenticated</dd>
+                    <dt>provider</dt><dd>Contains the string representation of the provider used for the login.</dd>
+                </dl>
+                <p>
+                    When a user is logged in you can retrieve these informations from the HybridAuthUserWrapper-Object (depending on the configured Authentication-Provider):
+                </p>
+                <dl>
+                    <dt>getUID()</dt><dd>to get the name, the user used for login</dd>
+                    <dt>getName()</dt><dd>to get the display-name of the user.</dd>
+                    <dt>getDisplayName()</dt><dd>is  an alias to getName().</dd>
+                    <dt>getMail()</dt><dd>to get the email-address of the user (when the provider allows that).</dd>
+                    <dt>getLanguage()</dt><dd>to get the language of the user (when the provider allows that).</dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Current values</h3>
+            </div>
+            <div class="panel-body">
+                <h4>Session-Data</h4>
+                <dl>
+                    <dt>authenticated</dt><dd><?= $session['authenticated']?"true":"false" ?></dd>
+                    <?php if (true === $session['authenticated']) : ?>
+                    <dt>user</dt><dd>
+                        <?= get_class($session['user']) ?>
+                        <dl>
+                            <dt>getUID()</dt><dd><?= $session['user']->getUID() ?></dd>
+                            <dt>getName()</dt><dd><?= $session['user']->getName() ?></dd>
+                            <dt>getDisplayName()</dt><dd><?= $session['user']->getDisplayName() ?></dd>
+                            <dt>getMail()</dt><dd><?= $session['user']->getMail() ?></dd>
+                            <dt>getLanguage()</dt><dd><?= $session['user']->getLanguage() ?></dd>
+                        </dl>
+                    </dd>
+                    <dt>provider</dt><dd><?= $session['provider'] ?></dd>
+                    <?php endif ?>
+                </dl>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Help &amp; Support</h3>
+            </div>
+            <div class="panel-body">
+                <p>
+                    If you need any help or support while integrating OrgHeiglHybridAuth,
+                    you may reach us via <ul>
+                    <li>IRC: <a href="irc://irc.freenode.net/orgheiglhybridauth">#orgheiglhybridauth on Freenode</a></li>
+                    <li>Gitter: <a href="https://gitter.im/heiglandreas/HybridAuth">heiglandreas/HybridAuth on <Gitter></Gitter></a></li>
+                    </ul>
+                    We'd love to hear any questions or feedback you may have
+                    regarding this release.
+                </p>
+                <p>
+                    Should you have issues please tell us about them on the
+                     <a href="https://github.com/heiglandreas/HybridAuth/issues">issue-tracker</a>.
+                </p>
+
+                <p><a class="btn btn-success pull-right" href="http://webchat.freenode.net?channels=orgheiglhybridauth" target="_blank">Ping us on IRC &raquo;</a></p>
+            </div>
+        </div>
+    </div>
+</div>
