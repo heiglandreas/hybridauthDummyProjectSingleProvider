@@ -17,7 +17,7 @@
         "zendframework/zend-mvc": "^3.0.1",
         "zfcampus/zf-development-mode": "^3.0",
         "guzzlehttp/guzzle": "^6.2",
-        "org_heigl/hybridauth": "dev-feature/MovetoSocialAuth"
+        "org_heigl/hybridauth": "^3.0"
     },
     "autoload": {
         "psr-4": {
